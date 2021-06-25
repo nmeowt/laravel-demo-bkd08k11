@@ -2,9 +2,9 @@
 @section('main-content')
     <div class="card">
         {{-- Thêm thì các bạn sử dụng cho chị post --}}
-        <form method="post" action="/major/store">
+        <form method="post" action="{{ route('major.store') }}">
             @csrf
-            <div class="card-header">
+            <div class=" card-header">
                 <h4 class="card-title">
                     Thêm ngành học
                 </h4>

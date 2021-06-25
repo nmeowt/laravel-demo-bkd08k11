@@ -10,7 +10,9 @@ Route::get('/', function () {
 // Quản lý ngành học
 // Xem
 // Thêm 
-Route::get('major/create', [MajorController::class, 'create']);
-Route::post('major/store', [MajorController::class, 'store']);
+// Route::get('major/create', [MajorController::class, 'create']);
+// Route::post('major/store', [MajorController::class, 'store'])->name('store');
 // Sửa
 // Xóa
+
+Route::resource('major', MajorController::class);
