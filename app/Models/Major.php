@@ -13,4 +13,6 @@ class Major extends Model
     protected $table = 'major';
 
     public $timestamps = false;
+
+    public $primaryKey = 'idMajor';
 }

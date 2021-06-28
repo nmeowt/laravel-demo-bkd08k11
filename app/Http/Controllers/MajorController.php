@@ -58,7 +58,9 @@ class MajorController extends Controller
      */
     public function show($id)
     {
-        //
+        // $major = Major::where('idMajor', '=', $id)->first(); # where
+        $major = Major::find($id);
+        return $major;
     }
 
     /**
@@ -69,7 +71,10 @@ class MajorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $major = Major::find($id);
+        return view('major.edit', [
+            "major" => $major
+        ]);
     }
 
     /**
@@ -81,7 +86,12 @@ class MajorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Tìm
+        $major = Major::find($id);
+        $major->nameMajor = $request->get('name');
+        $major->save();
+
+        return Redirect::route('major.index');
     }
 
     /**
@@ -92,6 +102,7 @@ class MajorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Major::find($id)->delete();
+        return Redirect::route('major.index');
     }
 }

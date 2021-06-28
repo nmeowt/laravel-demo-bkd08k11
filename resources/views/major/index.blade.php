@@ -21,12 +21,26 @@
                 <thead>
                     <th>Mã</th>
                     <th>Tên</th>
+                    <th>Xem</th>
+                    <th>Sửa</th>
+                    <th>Xóa</th>
                 </thead>
                 <tbody>
                     @foreach ($majors as $major)
                         <tr>
                             <td>{{ $major->idMajor }}</td>
                             <td>{{ $major->nameMajor }}</td>
+                            <td><a class="btn btn-primary btn-sm"
+                                    href="{{ route('major.show', $major->idMajor) }}">Xem</a></td>
+                            <td><a class="btn btn-warning btn-sm"
+                                    href="{{ route('major.edit', $major->idMajor) }}">Sửa</a></td>
+                            <td>
+                                <form action="{{ route('major.destroy', $major->idMajor) }}" method="post">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button class="btn btn-danger btn-sm">Xóa</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
 
