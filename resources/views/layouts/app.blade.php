@@ -33,8 +33,11 @@
         @include('layouts.sidebar')
         <div class="main-panel">
             @include('layouts.navbar')
-
-            @yield('main-content')
+            <div class="content">
+                <div class="container-fluid">
+                    @yield('main-content')
+                </div>
+            </div>
         </div>
         @include('layouts.sidebar')
     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Major;
+use Illuminate\Support\Facades\Redirect;
 
 class MajorController extends Controller
 {
@@ -12,11 +13,15 @@ class MajorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $majors = Major::all();
+        $search = $request->get('search');
+        # all => lấy tất cả bản ghi
+        # paginate => phân trang
+        $majors = Major::where('nameMajor', 'like', "%$search%")->paginate(3);
         return view('major.index', [
-            "majors" => $majors
+            "majors" => $majors,
+            'search' => $search,
         ]);
     }
 
@@ -42,6 +47,7 @@ class MajorController extends Controller
         $major = new Major();
         $major->nameMajor = $name;
         $major->save();
+        return Redirect::route('major.index');
     }
 
     /**
