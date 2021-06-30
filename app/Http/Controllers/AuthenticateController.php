@@ -18,14 +18,24 @@ class AuthenticateController extends Controller
     {
         $email = $request->get('email');
         $password = $request->get('password');
-
         try {
             $ministry = Ministry::where('email', $email)->where('password', $password)->firstOrFail();
+            $request->session()->put('id', $ministry->idMinistry);
+            $request->session()->put('fullName', $ministry->fullName);
             return Redirect::route("welcome");
         } catch (Exception $e) {
-            return Redirect::route("login");
+            return Redirect::route("login")->with('error', [
+                "message" => 'Đăng nhập lỗi',
+                "email" => $email,
+            ]);
         }
+    }
 
-        // return $ministry;
+    public function logout(Request $request)
+    {
+        // Xóa session
+        $request->session()->flush();
+        // Điều hướng nó về trang login
+        return Redirect::route("login");
     }
 }

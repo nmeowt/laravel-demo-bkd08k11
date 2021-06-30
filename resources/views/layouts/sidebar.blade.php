@@ -9,6 +9,15 @@
         </a>
     </div>
     <div class="sidebar-wrapper">
+        <div class="user">
+            <div class="info">
+                <a href="#">
+                    <span>
+                        Chào {{ Session::get('fullName') }}
+                    </span>
+                </a>
+            </div>
+        </div>
         <ul class="nav">
             <li>
                 <a href="{{ route('major.index') }}">

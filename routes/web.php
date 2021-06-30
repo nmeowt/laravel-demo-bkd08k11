@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 // Authentication
 Route::get('/login', [AuthenticateController::class, 'login'])->name('login');
 Route::post('/login-process', [AuthenticateController::class, 'loginProcess'])->name('login-process');
+Route::get("/logout", [AuthenticateController::class, 'logout'])->name('logout');
 
 Route::get('/', function () {
     return view('welcome');

@@ -11,5 +11,13 @@
                 <span class="icon-bar bar3"></span>
             </button>
         </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="{{ route('logout') }}" class=" btn-magnify">
+                    <p>Đăng xuất</p>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>

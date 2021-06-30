@@ -48,8 +48,7 @@
                                     <div class="card-content">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="email" name="email" placeholder="Nhập email"
-                                                class="form-control input-no-border">
+                                            <input type="email" name="email" placeholder="Nhập email" @if (Session::exists('error')) value="{{ Session::get('error.email') }}" @endif class=" form-control input-no-border">
                                         </div>
                                         <div class="form-group">
                                             <label>Mật khẩu</label>
@@ -58,6 +57,11 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-center">
+                                        @if (Session::exists('error'))
+                                            <div class="alert alert-danger">
+                                                {{ Session::get('error.message') }}
+                                            </div>
+                                        @endif
                                         <button type="submit" class="btn btn-fill btn-wd ">Zôoooo</button>
                                     </div>
                                 </div>
