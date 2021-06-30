@@ -1,18 +1,16 @@
 <?php
 
+use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\MajorController;
 use Illuminate\Support\Facades\Route;
 
+// Authentication
+Route::get('/login', [AuthenticateController::class, 'login'])->name('login');
+Route::post('/login-process', [AuthenticateController::class, 'loginProcess'])->name('login-process');
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-// Quản lý ngành học
-// Xem
-// Thêm 
-// Route::get('major/create', [MajorController::class, 'create']);
-// Route::post('major/store', [MajorController::class, 'store'])->name('store');
-// Sửa
-// Xóa
-
+// ngành học
 Route::resource('major', MajorController::class);

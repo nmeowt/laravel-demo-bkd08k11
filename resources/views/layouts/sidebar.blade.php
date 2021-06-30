@@ -1,7 +1,7 @@
 <div class="sidebar" data-background-color="brown" data-active-color="danger">
     <div class="logo">
         <a href="http://www.creative-tim.com" class="simple-text logo-mini">
-            CT
+            08
         </a>
 
         <a href="http://www.creative-tim.com" class="simple-text logo-normal">
@@ -14,6 +14,12 @@
                 <a href="{{ route('major.index') }}">
                     <i class="ti-calendar"></i>
                     <p>Quản lý ngành học</p>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="ti-heart"></i>
+                    <p>Quản lý lớp</p>
                 </a>
             </li>
             <li>
