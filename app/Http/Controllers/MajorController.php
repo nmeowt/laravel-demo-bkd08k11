@@ -15,6 +15,7 @@ class MajorController extends Controller
      */
     public function index(Request $request)
     {
+        # test git
         $search = $request->get('search');
         # all => lấy tất cả bản ghi
         # paginate => phân trang
