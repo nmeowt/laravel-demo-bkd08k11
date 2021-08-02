@@ -1,0 +1,9 @@
+Source Control: quản lý mã nguồn
+Git command:
+- git pull: kéo code về
+- git status: kiểm tra trạng thái dự án tại máy mình
+- Đẩy code lên git:
+    + git add <tên file> | git add .: đưa nó vào trạng thái sẵn sàng commit
+    + git commit -m "tự ghi": đưa nó vào trạng thái sẵn sàng push
+    + git push: đẩy code lên
+- git commit: biết được code của bạn sử dụng cho mục đích gì
