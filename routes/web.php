@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\MajorController;
+use App\Http\Controllers\StudentController;
 use App\Http\Middleware\CheckLogged;
 use App\Http\Middleware\CheckLogin;
 use Illuminate\Support\Facades\Route;
@@ -21,4 +22,7 @@ Route::middleware([CheckLogin::class])->group(function () {
     Route::resource('major', MajorController::class);
 
     Route::get("/logout", [AuthenticateController::class, 'logout'])->name('logout');
+
+    // sinh viên
+    Route::resource('student', StudentController::class);
 });
