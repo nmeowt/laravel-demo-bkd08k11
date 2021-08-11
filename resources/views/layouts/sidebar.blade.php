@@ -32,9 +32,9 @@
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{ route('file.view-form') }}">
                     <i class="ti-bar-chart-alt"></i>
-                    <p>Charts</p>
+                    <p>Demo form</p>
                 </a>
             </li>
         </ul>

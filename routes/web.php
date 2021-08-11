@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\MajorController;
 use App\Http\Controllers\StudentController;
 use App\Http\Middleware\CheckLogged;
@@ -25,4 +26,11 @@ Route::middleware([CheckLogin::class])->group(function () {
 
     // sinh viên
     Route::resource('student', StudentController::class);
+
+    Route::name('file.')->group(function () {
+        Route::get('/form', [FileController::class, 'viewForm'])->name('view-form');
+        Route::post('/upload-file', [FileController::class, 'uploadFile'])->name('upload-file');
+        Route::get('/get-all-file', [FileController::class, 'getAllFile'])->name('get-all-file');
+        Route::post('/download-file', [FileController::class, 'downloadFile'])->name('download-file');
+    });
 });
