@@ -17,6 +17,7 @@
             </form>
             <br>
             <a href="{{ route('student.add-by-excel') }}" class="btn btn-primary">Thêm bằng excel</a>
+            <a href="{{ route('student.download-excel') }}" class="btn btn-primary">Xuất file excel</a>
         </div>
 
         <div class="card-content table-responsive table-full-width">

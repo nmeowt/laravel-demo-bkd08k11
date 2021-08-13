@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentExport;
 use App\Imports\StudentImport;
 use App\Models\Grade;
 use App\Models\Student;
@@ -105,5 +106,10 @@ class StudentController extends Controller
         Excel::import(new StudentImport,  $file);
 
         return Redirect::route('student.index');
+    }
+
+    public function export()
+    {
+        return Excel::download(new StudentExport, 'DanhSachSinhVien.xlsx');
     }
 }

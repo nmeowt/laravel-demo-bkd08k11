@@ -29,6 +29,7 @@ Route::middleware([CheckLogin::class])->group(function () {
     Route::name('student.')->group(function () {
         Route::get('/add-by-excel', [StudentController::class, 'addByExcel'])->name('add-by-excel');
         Route::post('/add-by-excel-process', [StudentController::class, 'import'])->name('add-by-excel-process');
+        Route::get('/download-excel', [StudentController::class, 'export'])->name('download-excel');
     });
     Route::name('file.')->group(function () {
         Route::get('/form', [FileController::class, 'viewForm'])->name('view-form');
