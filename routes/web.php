@@ -26,7 +26,10 @@ Route::middleware([CheckLogin::class])->group(function () {
 
     // sinh viên
     Route::resource('student', StudentController::class);
-
+    Route::name('student.')->group(function () {
+        Route::get('/add-by-excel', [StudentController::class, 'addByExcel'])->name('add-by-excel');
+        Route::post('/add-by-excel-process', [StudentController::class, 'import'])->name('add-by-excel-process');
+    });
     Route::name('file.')->group(function () {
         Route::get('/form', [FileController::class, 'viewForm'])->name('view-form');
         Route::post('/upload-file', [FileController::class, 'uploadFile'])->name('upload-file');

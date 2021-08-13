@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\StudentImport;
 use App\Models\Grade;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends Controller
 {
@@ -15,7 +18,7 @@ class StudentController extends Controller
      */
     public function index(Request $request)
     {
-        $grades = Grade::all();
+        $grades = Grade::join('course', 'grade.idCourse', '=', 'course.idCourse')->select('*')->get();
         $grade = $request->get('grade');
         $students = Student::where('idGrade', $grade)->get();
         return view("student.index", [
@@ -89,5 +92,18 @@ class StudentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addByExcel()
+    {
+        return view('student.add-by-excel');
+    }
+
+    public function import(Request $request)
+    {
+        $file = $request->file('excel-file');
+        Excel::import(new StudentImport,  $file);
+
+        return Redirect::route('student.index');
     }
 }

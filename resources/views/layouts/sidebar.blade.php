@@ -32,6 +32,12 @@
                 </a>
             </li>
             <li>
+                <a href="{{ route('student.index') }}">
+                    <i class="ti-heart"></i>
+                    <p>Quản lý sinh viên</p>
+                </a>
+            </li>
+            <li>
                 <a href="{{ route('file.view-form') }}">
                     <i class="ti-bar-chart-alt"></i>
                     <p>Demo form</p>

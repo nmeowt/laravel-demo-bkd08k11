@@ -9,12 +9,14 @@
                     <option value="">-----</option>
                     @foreach ($grades as $grade)
                         <option value="{{ $grade->idGrade }}" @if ($grade->idGrade == $idGrade) {{ 'selected' }} @endif>
-                            {{ $grade->nameGrade }}
+                            {{ $grade->nameGrade . 'K' . $grade->nameCourse }}
                         </option>
                     @endforeach
                 </select>
                 <button class="btn btn-xs btn-fill">Oke</button>
             </form>
+            <br>
+            <a href="{{ route('student.add-by-excel') }}" class="btn btn-primary">Thêm bằng excel</a>
         </div>
 
         <div class="card-content table-responsive table-full-width">
